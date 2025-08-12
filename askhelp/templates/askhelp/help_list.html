@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help Requests</title>
+</head>
+<body>
+    <h1>Help Requests</h1>
+    <a href="{% url 'help_create' %}">+ Add Help Request</a>
+    <ul>
+        {% for help in helps %}
+        <li>
+            <strong>{{ help.title }}</strong> - {{ help.description }}
+            <a href="{% url 'help_update' help.pk %}">Edit</a>
+            <a href="{% url 'help_delete' help.pk %}">Delete</a>
+        </li>
+        {% empty %}
+        <li>No help requests yet.</li>
+        {% endfor %}
+    </ul>
+
+    
+</body>
+</html>
